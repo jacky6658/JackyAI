@@ -49,35 +49,64 @@ export const Contact: React.FC = () => {
     }
 
     try {
+      // 調試：檢查配置
+      console.log('EmailJS 配置檢查:', {
+        PUBLIC_KEY: EMAILJS_CONFIG.PUBLIC_KEY ? '已設置' : '未設置',
+        SERVICE_ID: EMAILJS_CONFIG.SERVICE_ID,
+        TEMPLATE_ID: EMAILJS_CONFIG.TEMPLATE_ID,
+      });
+
       // 初始化 EmailJS
       emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
 
       // 準備郵件模板參數
+      // 注意：to_email 和 reply_to 應該在 EmailJS 模板設置中配置，不要作為參數發送
       const templateParams = {
         from_name: formState.name,
         from_email: formState.email,
         company: formState.company || '未填寫',
         service: SERVICE_NAMES[formState.service] || formState.service,
         message: formState.message,
-        to_email: BRAND.email,
-        reply_to: formState.email,
       };
 
+      console.log('發送郵件參數:', templateParams);
+
       // 發送郵件
-      await emailjs.send(
+      const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
         templateParams
       );
 
+      console.log('郵件發送成功:', response);
+
       // 成功
       setStatus('success');
       setFormState({ name: '', email: '', company: '', service: 'ai-automation', message: '' });
       setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
+    } catch (error: any) {
       console.error('郵件發送失敗:', error);
+      console.error('錯誤詳情:', {
+        status: error?.status,
+        text: error?.text,
+        message: error?.message,
+      });
+      
+      let errorMsg = '發送失敗，請稍後再試或直接使用 Email 聯繫。';
+      
+      // 根據錯誤類型提供更具體的錯誤訊息
+      if (error?.status === 400) {
+        errorMsg = '請求參數錯誤，請檢查表單填寫是否完整。';
+      } else if (error?.status === 401) {
+        errorMsg = '認證失敗，請檢查 EmailJS 配置是否正確。';
+      } else if (error?.status === 404) {
+        errorMsg = '服務或模板不存在，請檢查 EmailJS 配置。';
+      } else if (error?.text) {
+        errorMsg = `發送失敗：${error.text}`;
+      }
+      
       setStatus('error');
-      setErrorMessage('發送失敗，請稍後再試或直接使用 Email 聯繫。');
+      setErrorMessage(errorMsg);
       setTimeout(() => {
         setStatus('idle');
         setErrorMessage('');
