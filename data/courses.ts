@@ -9,10 +9,10 @@ export const COURSES_DATA: Course[] = [
     subtitle: "用 n8n 打造 24 小時運行的 AI 行銷大腦",
     description: "專為行銷人與創業者設計。我們帶你用 n8n 這個強大工具，將 ChatGPT、LINE、社群與表單串接成自動化行銷引擎。告別瑣碎執行，讓 AI 幫你處理客戶分群與標籤，釋放創意生產力。",
     tags: ["n8n", "AI 行銷", "自動化"],
-    studentCount: "500+",
+    studentCount: "10",
     duration: "12 小時",
     price: "NT$ 3,500",
-    link: "https://www.pressplay.cc/link/s/A3D18E32",
+    link: "https://www.pressplay.cc/project/077766024AF6A7A71BB083B54D17C68A/about",
     coverImage: "https://static.wixstatic.com/media/9705bb_650f30cbdd5040679358c3337425267d~mv2.jpg",
     outcomes: [
       "掌握 n8n 視覺化工具：像玩樂高一樣串接 ChatGPT、LINE 與 Google 表單",
@@ -91,7 +91,7 @@ export const COURSES_DATA: Course[] = [
     duration: "約 15 篇內容",
     price: "NT$ 399",
     link: "https://ppa.tw/s/6A368DDE",
-    coverImage: "https://static.wixstatic.com/media/9705bb_f1d6b059635e47879e60741639739564~mv2.png",
+    coverImage: "/images/AI樂齡生活：輕鬆學會ChatGPT，讓智慧科技成為您的好幫手.jpg",
     outcomes: [
       "認識 AI 與生活的關聯：從智慧家電到生成式 AI，了解人工智慧如何影響我們的日常，破除迷思。",
       "動手體驗 ChatGPT 與實用工具：親身操作 ChatGPT 與各種免費工具，學會挑選適合的應用方式。",

@@ -21,70 +21,74 @@ export const AllCourses: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-32">
         {COURSES.map((course, idx) => (
           <motion.div
             key={course.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
-            className="group flex flex-col md:flex-row bg-slate-900/40 border border-slate-800 rounded-[32px] overflow-hidden hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500 h-full"
+            className="group flex flex-col bg-slate-900/40 border border-slate-800 rounded-[32px] overflow-hidden hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/5 transition-all duration-500 h-full"
           >
-            {/* Image Section */}
-            <div className="md:w-[42%] relative min-h-[260px] md:min-h-full overflow-hidden shrink-0">
+            {/* Image Section - 圖片在上 */}
+            <div className="relative w-full aspect-[16/10] overflow-hidden">
               <img 
                 src={course.coverImage} 
-                className="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" 
+                className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" 
                 alt={course.title} 
               />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950/60 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
               
-              <div className="absolute top-6 left-6">
+              {/* HOT Badge */}
+              <div className="absolute top-4 left-4">
                 <div className="px-3 py-1 bg-blue-600 text-white text-[10px] font-black rounded-lg shadow-lg uppercase tracking-widest backdrop-blur-md">
                   HOT
                 </div>
               </div>
             </div>
             
-            {/* Content Section */}
-            <div className="p-8 md:p-10 md:w-[58%] flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {course.tags.map(tag => (
-                    <span key={tag} className="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded-md uppercase tracking-wider border border-blue-500/10 whitespace-nowrap">
-                      {tag}
-                    </span>
-                  ))}
+            {/* Content Section - 文字在下 */}
+            <div className="p-6 md:p-8 flex flex-col flex-grow">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {course.tags.map(tag => (
+                  <span key={tag} className="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-bold rounded-md uppercase tracking-wider border border-blue-500/10 whitespace-nowrap">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors leading-tight line-clamp-2">
+                {course.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed font-light line-clamp-3 flex-grow">
+                {course.description}
+              </p>
+              
+              {/* Stats */}
+              <div className="flex items-center gap-6 mb-6 py-4 border-y border-slate-800/50">
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-medium">
+                  <Users size={14} className="text-blue-500" /> 
+                  <span>{course.studentCount} 位學員</span>
                 </div>
-                
-                <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors line-clamp-2 leading-tight min-h-[3.5rem]">
-                  {course.title}
-                </h3>
-                
-                <p className="text-slate-400 text-sm mb-6 leading-relaxed font-light line-clamp-3 min-h-[4.5rem]">
-                  {course.description}
-                </p>
-                
-                <div className="flex items-center gap-6 mb-8 py-4 border-y border-slate-800/50">
-                  <div className="flex items-center gap-2 text-slate-400 text-xs font-medium">
-                    <Users size={14} className="text-blue-500" /> 
-                    <span>{course.studentCount} 位學員</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400 text-xs font-medium">
-                    <Clock size={14} className="text-blue-500" /> 
-                    <span>{course.duration}</span>
-                  </div>
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-medium">
+                  <Clock size={14} className="text-blue-500" /> 
+                  <span>{course.duration}</span>
                 </div>
               </div>
 
-              <div className="flex justify-between items-center mt-auto">
+              {/* Price and CTA */}
+              <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-800/50">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">報名費用</span>
                   <span className="text-2xl font-black text-white">{course.price}</span>
                 </div>
                 <Link 
                   to={`/courses/${course.slug}`} 
-                  className="px-6 py-3 bg-white text-slate-950 hover:bg-blue-500 hover:text-white rounded-2xl text-sm font-black transition-all flex items-center gap-2 shadow-xl shadow-white/5 active:scale-95"
+                  className="px-5 py-2.5 bg-white text-slate-950 hover:bg-blue-500 hover:text-white rounded-xl text-sm font-black transition-all flex items-center gap-2 shadow-xl shadow-white/5 active:scale-95"
                 >
                   查看詳情 <ArrowRight size={16} />
                 </Link>

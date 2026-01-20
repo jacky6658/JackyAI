@@ -13,7 +13,7 @@ export const WORKS_DATA: Work[] = [
     stack: ["Gemini", "Python", "FastAPI", "SQL", "FFmpeg"],
     year: "2024",
     industry: "Content Tech / Automation",
-    tags: ["AI Agent", "Gemini", "FastAPI"],
+    tags: ["AI Agent", "Content Tech", "Automation"],
     metrics: [
       { label: "單片生產時間", value: "< 5min" },
       { label: "內容產出規模", value: "+1000%" }
@@ -61,7 +61,7 @@ export const WORKS_DATA: Work[] = [
     stack: ["OpenAI API", "React", "Node.js", "Python", "Pinecone"],
     year: "2023",
     industry: "HR Tech",
-    tags: ["HR Tech", "AI Analysis", "RAG"],
+    tags: ["AI Agent", "HR Tech", "RAG"],
     metrics: [
       { label: "履歷篩選速度", value: "Instant" },
       { label: "流程節省時間", value: "70%" }
@@ -118,7 +118,7 @@ export const WORKS_DATA: Work[] = [
     stack: ["Next.js", "Gemini / GPT-4", "Supabase", "Tailwind CSS", "Vercel"],
     year: "2024",
     industry: "SaaS / Corporate Productivity",
-    tags: ["SaaS", "Platform", "API Integration"],
+    tags: ["Platform", "RAG", "Automation"],
     metrics: [
       { label: "人均產值提升", value: "300%" },
       { label: "流程自動化率", value: "85%" }
@@ -165,7 +165,7 @@ export const WORKS_DATA: Work[] = [
     stack: ["Gemini", "Python", "Next.js", "YouTube API", "n8n"],
     year: "2024",
     industry: "Media Tech / AI Data",
-    tags: ["AI Agent", "Data Analysis", "Automation"],
+    tags: ["AI Agent", "Media Tech", "Data Analysis"],
     metrics: [
       { label: "選題優化效率", value: "+75%" },
       { label: "平均觀看漲幅", value: "+60%" }
