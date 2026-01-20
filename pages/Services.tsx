@@ -36,7 +36,7 @@ export const Services: React.FC = () => {
               transition={{ delay: idx * 0.1 }}
               className="relative p-10 rounded-[40px] bg-[#0B1220] border border-white/5 hover:border-blue-500/30 transition-all duration-500 flex flex-col h-full overflow-hidden shadow-2xl group"
             >
-              {/* Card Header Icon Container -還原截圖- */}
+              {/* Card Header Icon Container */}
               <div className="w-full h-32 bg-blue-500/[0.03] rounded-[32px] mb-10 flex items-center justify-center border border-white/[0.02] group-hover:bg-blue-500/[0.06] transition-all">
                 <div className="p-5 rounded-2xl bg-blue-500/10 text-blue-400 group-hover:scale-110 transition-transform">
                   <IconComp size={40} />
@@ -57,7 +57,7 @@ export const Services: React.FC = () => {
                 ))}
               </div>
 
-              {/* Price Section -還原截圖文字- */}
+              {/* Price Section */}
               <div className="pt-10 border-t border-white/[0.05]">
                 <p className="text-xs font-bold text-slate-500 mb-3 tracking-widest">預算區間</p>
                 <p className="text-3xl font-black text-white italic tracking-tighter">{service.priceFrom}</p>
@@ -96,7 +96,7 @@ export const Services: React.FC = () => {
           
           <div className="space-y-5 relative z-10">
             <a 
-              href={`https://line.me/ti/p/~${BRAND.line}`} 
+              href={BRAND.lineLink} 
               target="_blank" rel="noreferrer"
               className="w-full py-5 bg-white text-slate-950 rounded-[20px] font-black flex items-center justify-center gap-3 hover:bg-blue-500 hover:text-white transition-all shadow-xl active:scale-95 group/btn"
             >

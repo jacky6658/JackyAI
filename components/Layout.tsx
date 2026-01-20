@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github, Mail, MessageSquare, Phone } from 'lucide-react';
+import { Menu, X, Globe, Instagram, Youtube, AtSign, Mail, MessageSquare, Phone } from 'lucide-react';
 import { BRAND } from '../constants.tsx';
 
 const Navbar: React.FC = () => {
@@ -104,12 +104,39 @@ const Footer: React.FC = () => {
             <p className="text-slate-500 max-w-md mb-12 leading-relaxed text-lg font-light">
               專注於企業級 AI 流程系統開發，致力於幫助創業者從繁瑣勞動中解放，創造更高的核心價值。
             </p>
+            {/* 更新後的社群圖示組 */}
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-blue-600 transition-all">
-                <Github size={24} />
+              <a 
+                href={BRAND.websiteLink} 
+                target="_blank" rel="noreferrer" 
+                title="官方網站"
+                className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-blue-600 transition-all group"
+              >
+                <Globe size={24} className="text-slate-400 group-hover:text-white" />
               </a>
-              <a href={`mailto:${BRAND.email}`} className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-blue-600 transition-all">
-                <Mail size={24} />
+              <a 
+                href={BRAND.igLink} 
+                target="_blank" rel="noreferrer" 
+                title="Instagram"
+                className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-pink-600 transition-all group"
+              >
+                <Instagram size={24} className="text-slate-400 group-hover:text-white" />
+              </a>
+              <a 
+                href={BRAND.ytLink} 
+                target="_blank" rel="noreferrer" 
+                title="YouTube"
+                className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-red-600 transition-all group"
+              >
+                <Youtube size={24} className="text-slate-400 group-hover:text-white" />
+              </a>
+              <a 
+                href={BRAND.threadsLink} 
+                target="_blank" rel="noreferrer" 
+                title="Threads"
+                className="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center hover:bg-slate-700 transition-all group"
+              >
+                <AtSign size={24} className="text-slate-400 group-hover:text-white" />
               </a>
             </div>
           </div>
@@ -128,8 +155,16 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-white mb-8 uppercase tracking-widest text-xs">聯絡諮詢</h4>
             <ul className="space-y-6 text-slate-500 font-medium">
-              <li className="flex items-center gap-3"><Mail size={18} className="text-blue-500" /> {BRAND.email}</li>
-              <li className="flex items-center gap-3"><MessageSquare size={18} className="text-blue-500" /> LINE: {BRAND.line}</li>
+              <li className="flex items-center gap-3">
+                <a href={`mailto:${BRAND.email}`} className="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                  <Mail size={18} className="text-blue-500" /> {BRAND.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <a href={BRAND.lineLink} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                  <MessageSquare size={18} className="text-blue-500" /> LINE 聯絡
+                </a>
+              </li>
               <li className="flex items-center gap-3"><Phone size={18} className="text-blue-500" /> {BRAND.phone}</li>
             </ul>
           </div>

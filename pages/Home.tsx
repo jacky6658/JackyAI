@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Star, Sparkles, Cpu, Bot, Zap, Code2, Play, ExternalLink } from 'lucide-react';
+import { ArrowRight, Star, Sparkles, Cpu, Bot, Zap, Code2, Play, ExternalLink, MessageCircle, Users, Globe, Instagram, Youtube, AtSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BRAND, WORKS, COURSES } from '../constants.tsx';
 
@@ -50,7 +50,6 @@ const BackgroundGlow = () => (
 );
 
 export const Home: React.FC = () => {
-  // 優先展示 ReelMind 與 RecruitAI
   const featuredSlugs = ['reelmind-ai-video-agent', 'recruit-ai-agent'];
   const featuredWorks = WORKS.sort((a, b) => {
     const aIndex = featuredSlugs.indexOf(a.slug);
@@ -64,7 +63,7 @@ export const Home: React.FC = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative px-6 pt-40 pb-24 md:pt-56 md:pb-40 max-w-7xl mx-auto text-center overflow-visible">
+      <section className="relative px-6 pt-40 pb-24 md:pt-56 md:pb-32 max-w-7xl mx-auto text-center overflow-visible">
         <BackgroundGlow />
         
         <FloatingNode className="top-40 left-10" delay={0}>
@@ -131,7 +130,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-6"
+            className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16"
           >
             <Link 
               to="/contact" 
@@ -139,14 +138,70 @@ export const Home: React.FC = () => {
             >
               預約技術診斷 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a 
-              href={BRAND.portfolioPdf} 
-              className="px-12 py-6 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-black transition-all flex items-center gap-3 w-full md:w-auto border border-white/5 justify-center active:scale-95 shadow-xl"
-            >
-              <Download size={20} className="text-blue-400" /> 作品集 PDF
-            </a>
+          </motion.div>
+
+          {/* Social Links Quick Access */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex justify-center gap-6"
+          >
+            <a href={BRAND.websiteLink} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-blue-400 transition-colors"><Globe size={20} /></a>
+            <a href={BRAND.igLink} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-pink-400 transition-colors"><Instagram size={20} /></a>
+            <a href={BRAND.ytLink} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-red-500 transition-colors"><Youtube size={20} /></a>
+            <a href={BRAND.threadsLink} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-white transition-colors"><AtSign size={20} /></a>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* About Preview Section - NEW */}
+      <section className="px-6 py-32 border-t border-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 md:gap-24">
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:w-1/2 relative group"
+          >
+            <div className="aspect-[4/5] md:aspect-square rounded-[40px] overflow-hidden border border-white/10 shadow-3xl bg-slate-900 relative z-10">
+              <img 
+                src="https://static.wixstatic.com/media/9705bb_c252c3bfe4104fd089c647a3a7aaa0a4~mv2.jpg" 
+                alt="Jacky" 
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+            </div>
+            <div className="absolute -inset-4 bg-blue-500/20 blur-3xl -z-10 rounded-full group-hover:bg-blue-500/30 transition-all duration-1000"></div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:w-1/2 text-left"
+          >
+            <span className="inline-block text-blue-500 font-black text-xs uppercase tracking-[0.3em] mb-6">ABOUT ME / 關於我</span>
+            <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight italic tracking-tighter">
+              我不是純工程師，<br/>
+              這是我讓 AI 具備溫度的理由。
+            </h2>
+            <div className="space-y-6 text-slate-400 text-lg md:text-xl leading-relaxed font-light mb-12">
+              <p>
+                曾任職於獵頭與 HR 領域，擁有彰師大人資所碩士背景。我從人的痛點出發，用技術解決真實商業問題，而不僅僅是寫代碼。
+              </p>
+              <p>
+                我擅長將複雜的商業邏輯轉譯為高效的 AI Agent 系統，幫助企業從繁瑣的行政勞動中解放。
+              </p>
+            </div>
+            <Link 
+              to="/about" 
+              className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 border border-white/10 rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all group shadow-xl active:scale-95"
+            >
+              詳細瞭解我的故事 <ArrowRight size={22} className="text-blue-500 group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
       {/* Featured Courses */}
@@ -204,7 +259,7 @@ export const Home: React.FC = () => {
       {/* Projects Preview */}
       <section className="px-6 py-32">
         <div className="max-w-7xl mx-auto">
-          {/* Section Header - Now Left-Aligned and Matched Layout */}
+          {/* Section Header */}
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl text-left">
               <h2 className="text-4xl md:text-5xl font-black mb-6 italic tracking-tight uppercase">精選實戰案例 <span className="text-blue-500">/</span> Projects</h2>
@@ -276,14 +331,57 @@ export const Home: React.FC = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-24 text-center">
-            <Link 
-              to="/works" 
-              className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 text-white border border-white/5 rounded-2xl font-black text-lg hover:bg-slate-800 transition-all group active:scale-95"
+      {/* Community Section */}
+      <section className="px-6 py-32 bg-[#050B18]">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 italic tracking-tight uppercase">AI 先行者社群 <span className="text-blue-500">/</span> Community</h2>
+            <p className="text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+              加入我們的社群，與數百位 AI 愛好者一同探討最新的自動化工具與落地經驗，走在技術應用的最前端。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* LINE Community Card */}
+            <motion.a 
+              href={BRAND.lineCommunity}
+              target="_blank" rel="noreferrer"
+              whileHover={{ y: -10 }}
+              className="p-10 rounded-[40px] bg-emerald-500/5 border border-emerald-500/10 hover:border-emerald-500/40 transition-all duration-500 flex flex-col items-center text-center group shadow-2xl hover:shadow-emerald-500/5"
             >
-              瀏覽更多實戰作品 <ExternalLink size={18} className="text-blue-500 group-hover:rotate-45 transition-transform" />
-            </Link>
+              <div className="w-20 h-20 rounded-3xl bg-emerald-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <MessageCircle size={40} className="text-emerald-400" />
+              </div>
+              <h3 className="text-2xl font-black mb-4 italic">LINE 交流社群</h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+                即時獲得 AI 資訊、工具更新通知，與成員進行日常技術交流與疑難排解。
+              </p>
+              <div className="mt-auto px-8 py-3 bg-emerald-600 text-white rounded-xl font-bold flex items-center gap-2 group-hover:bg-emerald-500 transition-colors">
+                立即加入社群 <ArrowRight size={16} />
+              </div>
+            </motion.a>
+
+            {/* Discord Community Card */}
+            <motion.a 
+              href={BRAND.discordCommunity}
+              target="_blank" rel="noreferrer"
+              whileHover={{ y: -10 }}
+              className="p-10 rounded-[40px] bg-indigo-500/5 border border-indigo-500/10 hover:border-indigo-500/40 transition-all duration-500 flex flex-col items-center text-center group shadow-2xl hover:shadow-indigo-500/5"
+            >
+              <div className="w-20 h-20 rounded-3xl bg-indigo-500/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <Users size={40} className="text-indigo-400" />
+              </div>
+              <h3 className="text-2xl font-black mb-4 italic">Discord 伺服器</h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+                深度技術討論、開源藍圖分享與多頻道分類資源，適合追求系統化學習的你。
+              </p>
+              <div className="mt-auto px-8 py-3 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-2 group-hover:bg-indigo-500 transition-colors">
+                進入 Discord 頻道 <ArrowRight size={16} />
+              </div>
+            </motion.a>
           </div>
         </div>
       </section>
