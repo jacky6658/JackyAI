@@ -4,6 +4,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github, Monitor, CheckCircle2, ChevronRight, ChevronLeft, Layout, Sparkles, BarChart3, SearchCode, Rocket, Target, MessageSquareText, Brain } from 'lucide-react';
 import { WORKS } from '../constants.tsx';
+import { SEO } from '../components/SEO.tsx';
 
 const IconMap = {
   BarChart3: BarChart3,
@@ -41,9 +42,21 @@ export const WorkDetail: React.FC = () => {
   const nextWork = workIndex < WORKS.length - 1 ? WORKS[workIndex + 1] : null;
   const videoData = getYouTubeData(work.links.video);
   const projectShortName = work.shortName || work.title.split(' ')[0];
+  const workUrl = `https://www.aijob.com.tw/#/works/${work.slug}`;
+  const workImage = work.coverImage || 'https://static.wixstatic.com/media/9705bb_1eb98d8af29444eb84697335d47a0cc6~mv2.png';
 
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-40 pb-12 relative">
+    <>
+      <SEO
+        title={`${work.title} | AI 專案案例 - Jacky / AIJob`}
+        description={work.summary}
+        keywords={`${work.title}, ${work.industry}, ${work.stack.join(', ')}, AI 專案, AI 自動化, ${work.tags.join(', ')}`}
+        image={workImage}
+        url={workUrl}
+        type="article"
+        publishedTime={work.year ? `${work.year}-01-01T00:00:00+08:00` : undefined}
+      />
+      <div className="max-w-4xl mx-auto px-6 pt-40 pb-12 relative">
       {/* Back Button */}
       <Link 
         to="/works" 
@@ -266,5 +279,6 @@ export const WorkDetail: React.FC = () => {
         </div>
       </motion.div>
     </div>
+    </>
   );
 };

@@ -4,7 +4,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="專注於企業級 AI 流程系統開發，致力於幫助創業者從繁瑣勞動中解放。提供 AI 自動化、RAG 知識庫、客製化 AI 應用開發與企業 AI 內訓服務。" />
+    <meta name="keywords" content="AI 自動化, AI 顧問, 企業 AI 轉型, RAG 知識庫, AI Agent, 自動化工作流, AI 開發, 數位轉型, ChatGPT, Gemini, n8n" />
+    <meta name="author" content="Jacky Chen" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="zh-TW" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aijob.com.tw/" />
+    <meta property="og:title" content="Jacky / AIJob - AI 自動化顧問作品集" />
+    <meta property="og:description" content="專注於企業級 AI 流程系統開發，致力於幫助創業者從繁瑣勞動中解放。提供 AI 自動化、RAG 知識庫、客製化 AI 應用開發與企業 AI 內訓服務。" />
+    <meta property="og:image" content="https://www.aijob.com.tw/images/ogmtea.jpeg" />
+    <meta property="og:site_name" content="Jacky / AIJob" />
+    <meta property="og:locale" content="zh_TW" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.aijob.com.tw/" />
+    <meta name="twitter:title" content="Jacky / AIJob - AI 自動化顧問作品集" />
+    <meta name="twitter:description" content="專注於企業級 AI 流程系統開發，致力於幫助創業者從繁瑣勞動中解放。提供 AI 自動化、RAG 知識庫、客製化 AI 應用開發與企業 AI 內訓服務。" />
+    <meta name="twitter:image" content="https://www.aijob.com.tw/images/ogmtea.jpeg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.aijob.com.tw/" />
+    
     <title>Jacky / AIJob - AI 自動化顧問作品集</title>
+    
+    <!-- DNS 預解析 - 加速外部資源載入 -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://static.wixstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    
+    <!-- 預載入關鍵資源 -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" as="style">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +80,26 @@
         animation: marquee 30s linear infinite;
       }
       
+      /* INP 優化：使用 CSS 動畫替代 JavaScript 動畫 */
+      @keyframes glow-1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(100px, -50px) scale(1.2); }
+        66% { transform: translate(-50px, 80px) scale(0.9); }
+      }
+      @keyframes glow-2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-80px, 100px) scale(1.1); }
+        66% { transform: translate(60px, -40px) scale(1.2); }
+      }
+      .animate-glow-1 {
+        animation: glow-1 20s linear infinite;
+        will-change: transform;
+      }
+      .animate-glow-2 {
+        animation: glow-2 25s linear infinite;
+        will-change: transform;
+      }
+      
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -59,18 +114,14 @@
         background: var(--primary);
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
+    <!-- 
+      ⚠️ 已移除 importmap - 依賴已通過 npm 安裝並由 Vite 打包
+      這樣可以：
+      - 減少外部 CDN 依賴（esm.sh 載入較慢）
+      - 更好的 Tree-shaking 優化
+      - 更快的載入速度
+      - 更好的快取控制
+    -->
   </head>
   <body>
     <div id="root"></div>

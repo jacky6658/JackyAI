@@ -4,10 +4,18 @@ import { motion } from 'framer-motion';
 import { COURSES } from '../constants.tsx';
 import { Clock, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO.tsx';
 
 export const AllCourses: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-32 pb-12"> {/* 改為 pt-32 */}
+    <>
+      <SEO
+        title="課程教學與工作坊 | AI 自動化實戰課程 - Jacky / AIJob"
+        description="將頂尖的 AI 自動化技術轉化為您團隊的核心能力。我們的課程專注於實戰應用、流程重構與商業價值轉化。包含 n8n 自動化、ChatGPT 應用、AI 短影音智能體等實戰課程。"
+        keywords="AI 課程, AI 教學, n8n 課程, ChatGPT 課程, AI 自動化課程, AI 實戰工作坊, 企業 AI 內訓, AI 學習"
+        url="https://www.aijob.com.tw/#/courses"
+      />
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-12"> {/* 改為 pt-32 */}
       <div className="text-center mb-12 md:mb-20">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -35,7 +43,9 @@ export const AllCourses: React.FC = () => {
               <img 
                 src={course.coverImage} 
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" 
-                alt={course.title} 
+                alt={course.title}
+                loading="lazy"
+                decoding="async" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
               
@@ -125,5 +135,6 @@ export const AllCourses: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

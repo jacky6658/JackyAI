@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TIMELINE, BRAND } from '../constants.tsx';
 import { Brain, Code2, Rocket, Users, Lightbulb, Briefcase, Bot, Cpu, Zap, Database, Terminal, Globe, Sparkles } from 'lucide-react';
+import { SEO } from '../components/SEO.tsx';
 
 const SkillIcon = ({ icon: Icon, label, color }: { icon: any, label: string, color: string }) => (
   <motion.div 
@@ -20,7 +21,15 @@ const SkillIcon = ({ icon: Icon, label, color }: { icon: any, label: string, col
 
 export const About: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-40 pb-24">
+    <>
+      <SEO
+        title="關於我 | 用 HR 的溫度建構 AI 的邏輯 - Jacky / AIJob"
+        description="我是 Jacky，擁有 HR 靈魂的 AI 開發者。結合人力資源實務與 AI 技術，將複雜的商業場景轉化為自動化 Agent，重新設計企業的獲利流程。"
+        keywords="Jacky Chen, AI 開發者, HR 背景, AI 顧問, 獵頭顧問, AI 應用設計師, 企業 AI 轉型, AI 自動化專家"
+        url="https://www.aijob.com.tw/#/about"
+        type="profile"
+      />
+      <div className="max-w-7xl mx-auto px-6 pt-40 pb-24">
       <div className="flex flex-col lg:flex-row gap-20 items-start">
         {/* 左側邊欄：個人資訊卡片 */}
         <motion.div 
@@ -132,5 +141,6 @@ export const About: React.FC = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

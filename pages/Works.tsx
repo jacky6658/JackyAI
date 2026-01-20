@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, ArrowUpDown, X, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { WORKS } from '../constants.tsx';
+import { SEO } from '../components/SEO.tsx';
 
 export const Works: React.FC = () => {
   const [search, setSearch] = useState('');
@@ -62,7 +63,14 @@ export const Works: React.FC = () => {
   const hasActiveFilters = search !== '' || activeTag !== 'All';
 
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
+    <>
+      <SEO
+        title="作品案例 | AI 自動化專案展示 - Jacky / AIJob"
+        description="運用 AI 技術與全端開發能力解決真實世界的商業問題。展示 ReelMind 短影音智能體、RecruitAI 智能招募系統、AI 全能工具箱等企業級 AI 應用案例。"
+        keywords="AI 專案案例, AI 自動化案例, ReelMind, RecruitAI, AI 智能體開發, 企業 AI 應用, AI 系統開發案例"
+        url="https://www.aijob.com.tw/#/works"
+      />
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
       <div className="mb-10 md:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-3 md:mb-6 italic tracking-tight uppercase px-2 md:px-0">
           作品案例 <span className="text-blue-500">/</span> Case Studies
@@ -205,6 +213,8 @@ export const Works: React.FC = () => {
                       src={work.coverImage} 
                       alt={work.title} 
                       className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-60"></div>
                     {/* 標籤標記 */}
@@ -270,5 +280,6 @@ export const Works: React.FC = () => {
         )}
       </AnimatePresence>
     </div>
+    </>
   );
 };

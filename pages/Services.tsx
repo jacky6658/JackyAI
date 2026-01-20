@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SERVICES, BRAND } from '../constants.tsx';
 import { Bot, Cpu, Zap, CheckCircle2, MessageSquare, ArrowRight } from 'lucide-react';
+import { SEO } from '../components/SEO.tsx';
 
 const IconMap: any = {
   Bot: Bot,
@@ -12,7 +13,14 @@ const IconMap: any = {
 
 export const Services: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-40 pb-24">
+    <>
+      <SEO
+        title="服務項目 | AI 自動化與系統開發服務 - Jacky / AIJob"
+        description="提供 AI 流程自動化、AI 應用小程式開發、企業 AI 內訓與課程服務。結合 LLM 與自動化工具，將重複性行政流程轉為全自動執行，節省 80% 人力成本。"
+        keywords="AI 服務, AI 自動化服務, AI 系統開發, RAG 知識庫開發, AI 應用開發, 企業 AI 內訓, AI 工作坊, AI 顧問服務"
+        url="https://www.aijob.com.tw/#/services"
+      />
+      <div className="max-w-7xl mx-auto px-6 pt-40 pb-24">
       <div className="mb-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,5 +120,6 @@ export const Services: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

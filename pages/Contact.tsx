@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { BRAND } from '../constants.tsx';
+import { SEO } from '../components/SEO.tsx';
 
 export const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -27,7 +28,14 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
+    <>
+      <SEO
+        title="聯絡我們 | 預約 AI 轉型諮詢 - Jacky / AIJob"
+        description="準備好迎接自動化與 AI 帶來的巨大變革了嗎？我也準備好了。首次諮詢 30 分鐘免費，專案報價依據功能複雜度與維運需求。"
+        keywords="AI 諮詢, AI 顧問服務, 企業 AI 轉型諮詢, AI 自動化諮詢, 聯絡 AI 顧問, AI 專案報價"
+        url="https://www.aijob.com.tw/#/contact"
+      />
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
       <div className="text-center mb-12 md:mb-20">
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4 md:px-0">讓我們聊聊您的專案</h1>
         <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4 md:px-0">
@@ -169,5 +177,6 @@ export const Contact: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

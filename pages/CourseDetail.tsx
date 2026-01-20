@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, Clock, Users, CheckCircle2, BookOpen, ExternalLink, ShieldCheck } from 'lucide-react';
 import { COURSES } from '../constants.tsx';
+import { SEO } from '../components/SEO.tsx';
 
 export const CourseDetail: React.FC = () => {
   const { slug } = useParams();
@@ -10,8 +11,20 @@ export const CourseDetail: React.FC = () => {
 
   if (!course) return <Navigate to="/courses" />;
 
+  const courseUrl = `https://www.aijob.com.tw/#/courses/${course.slug}`;
+  const courseImage = course.coverImage || 'https://static.wixstatic.com/media/9705bb_1eb98d8af29444eb84697335d47a0cc6~mv2.png';
+
   return (
-    <div className="w-full">
+    <>
+      <SEO
+        title={`${course.title} | AI 課程 - Jacky / AIJob`}
+        description={course.description}
+        keywords={`${course.title}, ${course.tags.join(', ')}, AI 課程, ${course.subtitle}, 線上課程, AI 教學`}
+        image={courseImage}
+        url={courseUrl}
+        type="article"
+      />
+      <div className="w-full">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 bg-slate-950">
         <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
@@ -136,5 +149,6 @@ export const CourseDetail: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

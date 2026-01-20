@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star, Sparkles, Cpu, Bot, Zap, Code2, Play, ExternalLink, MessageCircle, Users, Globe, Instagram, Youtube, AtSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { BRAND, WORKS, COURSES } from '../constants.tsx';
+import { SEO } from '../components/SEO.tsx';
 
 const TechMarquee = () => {
   // 更新後的技術標籤，更貼近目前 AI 自動化實戰與大眾認知
@@ -43,26 +44,11 @@ const FloatingNode = ({ children, delay = 0, className = "" }: { children?: Reac
   </motion.div>
 );
 
+// INP 優化：使用 CSS 動畫替代 Framer Motion（減少主線程負擔）
 const BackgroundGlow = () => (
   <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
-    <motion.div
-      animate={{
-        x: [0, 100, -50, 0],
-        y: [0, -50, 80, 0],
-        scale: [1, 1.2, 0.9, 1],
-      }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute top-[-10%] left-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/20 blur-[80px] md:blur-[120px] rounded-full"
-    />
-    <motion.div
-      animate={{
-        x: [0, -80, 60, 0],
-        y: [0, 100, -40, 0],
-        scale: [1, 1.1, 1.2, 1],
-      }}
-      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="absolute bottom-[10%] right-[10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-indigo-600/15 blur-[100px] md:blur-[140px] rounded-full"
-    />
+    <div className="absolute top-[-10%] left-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/20 blur-[80px] md:blur-[120px] rounded-full animate-glow-1" />
+    <div className="absolute bottom-[10%] right-[10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-indigo-600/15 blur-[100px] md:blur-[140px] rounded-full animate-glow-2" />
   </div>
 );
 
@@ -78,7 +64,14 @@ export const Home: React.FC = () => {
   }).slice(0, 2);
 
   return (
-    <div className="w-full">
+    <>
+      <SEO
+        title="Jacky / AIJob - AI 自動化顧問作品集 | 企業 AI 轉型專家"
+        description="專注於企業級 AI 流程系統開發，致力於幫助創業者從繁瑣勞動中解放。提供 AI 自動化、RAG 知識庫、客製化 AI 應用開發與企業 AI 內訓服務。"
+        keywords="AI 自動化, AI 顧問, 企業 AI 轉型, RAG 知識庫, AI Agent, 自動化工作流, AI 開發, 數位轉型, ChatGPT, Gemini, n8n, 企業 AI 內訓"
+        url="https://www.aijob.com.tw/"
+      />
+      <div className="w-full">
       {/* Hero Section */}
       <section className="relative px-6 pt-32 pb-12 md:pt-56 md:pb-20 max-w-7xl mx-auto text-center overflow-visible">
         <BackgroundGlow />
@@ -159,7 +152,9 @@ export const Home: React.FC = () => {
             <div className="aspect-[4/5] md:aspect-[4/5] rounded-[40px] md:rounded-[48px] overflow-hidden border border-white/10 shadow-3xl bg-slate-900 relative z-10">
               <img 
                 src="https://static.wixstatic.com/media/9705bb_c252c3bfe4104fd089c647a3a7aaa0a4~mv2.jpg" 
-                alt="Jacky" 
+                alt="Jacky"
+                loading="lazy"
+                decoding="async" 
                 className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-[2000ms] group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80"></div>
@@ -220,7 +215,7 @@ export const Home: React.FC = () => {
                 className="group relative bg-slate-900/40 border border-white/5 rounded-[40px] overflow-hidden flex flex-col h-full hover:border-blue-500/30 transition-all duration-500"
               >
                 <div className="h-56 md:h-64 relative overflow-hidden">
-                  <img src={course.coverImage} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000" alt={course.title} />
+                  <img src={course.coverImage} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000" alt={course.title} loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80"></div>
                 </div>
                 <div className="p-6 sm:p-8 md:p-10 flex-grow flex flex-col">
@@ -273,7 +268,9 @@ export const Home: React.FC = () => {
                     <img 
                       src={work.coverImage} 
                       className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[1500ms]" 
-                      alt={work.title} 
+                      alt={work.title}
+                      loading="lazy"
+                      decoding="async" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/60 via-transparent to-transparent opacity-60"></div>
                   </div>
@@ -362,5 +359,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

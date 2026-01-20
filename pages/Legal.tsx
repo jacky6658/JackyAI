@@ -1,9 +1,17 @@
 
 import React from 'react';
+import { SEO } from '../components/SEO.tsx';
 
 export const Legal: React.FC = () => {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20">
+    <>
+      <SEO
+        title="隱私政策與使用條款 | Jacky / AIJob"
+        description="Jacky / AIJob 的隱私權政策與使用條款，說明我們如何收集、使用和保護您的個人資訊。"
+        keywords="隱私政策, 使用條款, 個人資料保護, 隱私權"
+        url="https://www.aijob.com.tw/#/legal"
+      />
+      <div className="max-w-3xl mx-auto px-6 py-20">
       <h1 className="text-3xl font-bold mb-12">法律資訊與隱私政策</h1>
       
       <section className="mb-12">
@@ -35,5 +43,6 @@ export const Legal: React.FC = () => {
         最後更新日期：2024年3月
       </div>
     </div>
+    </>
   );
 };
