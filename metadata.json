@@ -1,0 +1,8 @@
+{
+  "name": "Jacky AIJob Portfolio",
+  "description": "Professional high-end portfolio for Jacky AIJob focusing on AI Automation, Process Systems, and Custom AI Solutions.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
