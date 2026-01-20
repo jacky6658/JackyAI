@@ -64,12 +64,12 @@ export const About: React.FC = () => {
               <Sparkles size={14} className="animate-pulse" /> Bridge between Human and AI
             </div>
             
-            <h1 className="text-6xl md:text-[5.5rem] font-black mb-16 leading-[1] italic tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-black mb-10 md:mb-16 leading-[1.1] md:leading-[1] italic tracking-tighter">
               用 HR 的溫度，<br />
               <span className="text-gradient">建構 AI 的邏輯。</span>
             </h1>
             
-            <div className="space-y-12 text-xl md:text-2xl text-slate-400 font-light leading-relaxed">
+            <div className="space-y-8 md:space-y-12 text-base sm:text-lg md:text-xl lg:text-2xl text-slate-400 font-light leading-relaxed">
               <div className="p-8 bg-blue-500/[0.03] border-l-4 border-blue-600 rounded-r-3xl">
                 <p className="text-white font-bold italic">
                   「我不是純代碼出身的工程師，但我深知企業最底層的效率痛點。」

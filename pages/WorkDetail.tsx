@@ -61,22 +61,22 @@ export const WorkDetail: React.FC = () => {
             <span className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-wider border border-blue-500/20">{work.industry}</span>
             <span className="px-3 py-1 rounded-full bg-slate-800/50 text-slate-400 text-xs font-bold uppercase tracking-wider">{work.year}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight italic">{work.title}</h1>
-          <p className="text-xl text-slate-400 leading-relaxed mb-8 font-light">{work.summary}</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight tracking-tight italic">{work.title}</h1>
+          <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed mb-6 md:mb-8 font-light">{work.summary}</p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-slate-800/50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 py-6 md:py-8 border-y border-slate-800/50">
             <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-bold">角色定位</p>
-              <p className="font-medium text-slate-200 text-sm leading-tight">{work.role}</p>
+              <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2 font-bold">角色定位</p>
+              <p className="font-medium text-slate-200 text-xs sm:text-sm leading-tight">{work.role}</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-bold">產業領域</p>
-              <p className="font-medium text-slate-200 text-sm">{work.industry}</p>
+              <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2 font-bold">產業領域</p>
+              <p className="font-medium text-slate-200 text-xs sm:text-sm">{work.industry}</p>
             </div>
             <div className="col-span-2">
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-2 font-bold">核心技術棧</p>
-              <div className="flex flex-wrap gap-2">
-                {work.stack.map(s => <span key={s} className="px-2.5 py-1 rounded-lg bg-slate-900 text-[10px] text-slate-300 border border-white/5 uppercase font-bold tracking-wider">{s}</span>)}
+              <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest mb-1.5 sm:mb-2 font-bold">核心技術棧</p>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {work.stack.map(s => <span key={s} className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-slate-900 text-[9px] sm:text-[10px] text-slate-300 border border-white/5 uppercase font-bold tracking-wider">{s}</span>)}
               </div>
             </div>
           </div>

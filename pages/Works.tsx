@@ -63,11 +63,11 @@ export const Works: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
-      <div className="mb-12 md:mb-16">
-        <h1 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 italic tracking-tight uppercase">
+      <div className="mb-10 md:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-3 md:mb-6 italic tracking-tight uppercase px-2 md:px-0">
           作品案例 <span className="text-blue-500">/</span> Case Studies
         </h1>
-        <p className="text-slate-400 text-base md:text-lg max-w-2xl font-light">
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl font-light px-2 md:px-0">
           運用 AI 技術與全端開發能力解決真實世界的商業問題。
         </p>
       </div>
@@ -76,11 +76,11 @@ export const Works: React.FC = () => {
       <div className="mb-12 space-y-6">
         {/* 搜尋框 */}
         <div className="relative group">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors" size={20} />
+          <Search className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-400 transition-colors" size={18} />
           <input 
             type="text" 
             placeholder="搜尋作品名稱、技術棧或標籤..." 
-            className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl py-4 pl-14 pr-12 text-sm focus:outline-none focus:border-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
+            className="w-full bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl py-3 sm:py-4 pl-12 sm:pl-14 pr-10 sm:pr-12 text-xs sm:text-sm focus:outline-none focus:border-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

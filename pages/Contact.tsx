@@ -28,9 +28,9 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 pt-32 pb-12">
-      <div className="text-center mb-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">讓我們聊聊您的專案</h1>
-        <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+      <div className="text-center mb-12 md:mb-20">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 px-4 md:px-0">讓我們聊聊您的專案</h1>
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4 md:px-0">
           準備好迎接自動化與 AI 帶來的巨大變革了嗎？我也準備好了。
         </p>
       </div>
@@ -84,25 +84,25 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="lg:col-span-2">
-          <form onSubmit={handleSubmit} className="p-8 md:p-12 rounded-3xl bg-slate-900/50 border border-slate-800">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">您的姓名</label>
+          <form onSubmit={handleSubmit} className="p-5 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl bg-slate-900/50 border border-slate-800">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="text-xs sm:text-sm font-medium text-slate-400">您的姓名</label>
                 <input 
                   required
                   type="text" 
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
                   placeholder="王小明"
                   value={formState.name}
                   onChange={e => setFormState({...formState, name: e.target.value})}
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">電子信箱</label>
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="text-xs sm:text-sm font-medium text-slate-400">電子信箱</label>
                 <input 
                   required
                   type="email" 
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
                   placeholder="example@gmail.com"
                   value={formState.email}
                   onChange={e => setFormState({...formState, email: e.target.value})}
@@ -110,21 +110,21 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">公司名稱 (選填)</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="text-xs sm:text-sm font-medium text-slate-400">公司名稱 (選填)</label>
                 <input 
                   type="text" 
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
                   placeholder="某某科技有限公司"
                   value={formState.company}
                   onChange={e => setFormState({...formState, company: e.target.value})}
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">諮詢項目</label>
+              <div className="space-y-1.5 sm:space-y-2">
+                <label className="text-xs sm:text-sm font-medium text-slate-400">諮詢項目</label>
                 <select 
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors"
                   value={formState.service}
                   onChange={e => setFormState({...formState, service: e.target.value})}
                 >
@@ -136,12 +136,12 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="space-y-2 mb-8">
-              <label className="text-sm font-medium text-slate-400">您的需求描述</label>
+            <div className="space-y-1.5 sm:space-y-2 mb-6 sm:mb-8">
+              <label className="text-xs sm:text-sm font-medium text-slate-400">您的需求描述</label>
               <textarea 
                 required
                 rows={5}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"
                 placeholder="請描述您的專案願景、目前遇到的痛點或特定的功能需求..."
                 value={formState.message}
                 onChange={e => setFormState({...formState, message: e.target.value})}
@@ -151,14 +151,14 @@ export const Contact: React.FC = () => {
             <button 
               type="submit"
               disabled={status === 'loading'}
-              className="w-full py-5 bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-500 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 sm:py-5 bg-blue-600 hover:bg-blue-500 disabled:bg-slate-800 disabled:text-slate-500 text-white rounded-lg sm:rounded-xl font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2"
             >
               {status === 'loading' ? (
-                <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
               ) : status === 'success' ? (
-                <><CheckCircle2 size={20} /> 發送成功</>
+                <><CheckCircle2 size={18} className="sm:w-5 sm:h-5" /> 發送成功</>
               ) : (
-                <><Send size={20} /> 提交諮詢表單</>
+                <><Send size={18} className="sm:w-5 sm:h-5" /> 提交諮詢表單</>
               )}
             </button>
             

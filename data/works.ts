@@ -94,7 +94,7 @@ export const WORKS_DATA: Work[] = [
       "大幅縮減招募週期，平均錄取一位候選人的時間縮短了兩週"
     ],
     links: {
-      website: "https://recruit.aijob.com.tw/"
+      website: "https://aihr.step1ne.com/"
     },
     exploration: {
       title: "重新定義高效招募",
@@ -141,7 +141,7 @@ export const WORKS_DATA: Work[] = [
       "優化 AI 軟體訂閱預算，實現單一視窗管理多模型帳戶"
     ],
     links: {
-      website: "https://toolbox.aijob.com.tw/"
+      website: "https://aitools.aijob.com.tw/"
     },
     exploration: {
       title: "企業智慧化的最後一哩路",

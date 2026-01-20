@@ -102,7 +102,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[2.75rem] md:text-9xl font-black mb-8 md:mb-10 leading-[1.1] md:leading-[0.95] tracking-tighter"
+            className="text-[2rem] sm:text-[2.5rem] md:text-9xl font-black mb-6 md:mb-10 leading-[1.15] md:leading-[0.95] tracking-tighter px-2 md:px-0"
           >
             讓 AI 成為你的 <br className="md:hidden" />
             <motion.span 
@@ -124,7 +124,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-slate-400 text-lg md:text-2xl max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed font-light px-4 md:px-0"
+            className="text-slate-400 text-sm sm:text-base md:text-2xl max-w-3xl mx-auto mb-8 md:mb-16 leading-relaxed font-light px-4 md:px-0"
           >
             我們不只開發系統，更重新設計你的商業邏輯。透過高效的 LLM 整合與自動化工作流，將生產力提升至全新維度。
           </motion.p>
@@ -133,13 +133,13 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-16"
+            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-12 md:mb-16 px-4 md:px-0"
           >
             <Link 
               to="/contact" 
-              className="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black transition-all shadow-2xl shadow-blue-500/30 flex items-center justify-center gap-3 w-full md:w-auto text-lg active:scale-95"
+              className="px-8 py-4 md:px-10 md:py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black transition-all shadow-2xl shadow-blue-500/30 flex items-center justify-center gap-3 w-full sm:w-auto text-base md:text-lg active:scale-95"
             >
-              預約技術診斷 <ArrowRight size={20} />
+              預約技術診斷 <ArrowRight size={18} className="md:w-5 md:h-5" />
             </Link>
           </motion.div>
         </motion.div>
@@ -177,11 +177,11 @@ export const Home: React.FC = () => {
               <div className="h-1 w-10 md:w-12 bg-blue-600"></div>
               <span className="text-blue-500 font-black text-[10px] md:text-xs uppercase tracking-[0.4em]">Strategic AI Partner</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-8 md:mb-10 leading-[1.1] italic tracking-tighter">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black mb-6 md:mb-10 leading-[1.15] md:leading-[1.1] italic tracking-tighter">
               擁有 HR 靈魂的 <br/>
               <span className="text-white">AI 開發者。</span>
             </h2>
-            <div className="space-y-6 md:space-y-8 text-slate-400 text-lg md:text-xl leading-relaxed font-light mb-12 md:mb-16">
+            <div className="space-y-5 md:space-y-8 text-slate-400 text-sm sm:text-base md:text-xl leading-relaxed font-light mb-10 md:mb-16">
               <p>
                 我的背景並非傳統資工，而是人資與獵頭。這意味著我比一般工程師更懂得「流程中的人性痛點」。
               </p>
@@ -191,9 +191,9 @@ export const Home: React.FC = () => {
             </div>
             <Link 
               to="/about" 
-              className="inline-flex items-center justify-center gap-4 md:gap-6 px-10 py-5 bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl font-bold text-lg hover:border-blue-500/50 transition-all group active:scale-95 w-full md:w-auto"
+              className="inline-flex items-center justify-center gap-3 md:gap-6 px-8 py-4 md:px-10 md:py-5 bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl font-bold text-sm sm:text-base md:text-lg hover:border-blue-500/50 transition-all group active:scale-95 w-full md:w-auto"
             >
-              探索我的跨域故事 <ArrowRight size={22} className="text-blue-500 group-hover:translate-x-2 transition-transform" />
+              探索我的跨域故事 <ArrowRight size={18} className="md:w-[22px] md:h-[22px] text-blue-500 group-hover:translate-x-2 transition-transform" />
             </Link>
           </motion.div>
         </div>
@@ -203,11 +203,11 @@ export const Home: React.FC = () => {
       <section className="px-6 py-24 md:py-32 bg-slate-900/20 relative overflow-hidden border-y border-white/5">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
-            <div className="max-w-xl text-left">
-              <h2 className="text-3xl md:text-5xl font-black mb-4 md:mb-6 italic tracking-tight uppercase">實戰工作坊 <span className="text-blue-500">/</span> Learning</h2>
-              <p className="text-slate-500 text-base md:text-lg leading-relaxed font-light">將自動化技術轉化為您團隊的核心武力。</p>
+            <div className="max-w-xl text-center md:text-left w-full md:w-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-3 md:mb-6 italic tracking-tight uppercase">實戰工作坊 <span className="text-blue-500">/</span> Learning</h2>
+              <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed font-light">將自動化技術轉化為您團隊的核心武力。</p>
             </div>
-            <Link to="/courses" className="px-6 py-3 rounded-xl border border-slate-800 text-slate-400 font-bold hover:text-white hover:border-blue-500 transition-all w-full md:w-auto text-center">
+            <Link to="/courses" className="px-5 py-2.5 md:px-6 md:py-3 rounded-xl border border-slate-800 text-slate-400 font-bold hover:text-white hover:border-blue-500 transition-all w-full sm:w-auto text-center text-sm md:text-base">
               查看所有教學
             </Link>
           </div>
@@ -223,20 +223,20 @@ export const Home: React.FC = () => {
                   <img src={course.coverImage} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000" alt={course.title} />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80"></div>
                 </div>
-                <div className="p-8 md:p-10 flex-grow flex flex-col">
-                  <div className="flex items-center gap-2 text-yellow-500/80 mb-4 md:mb-6">
-                    <Star size={14} fill="currentColor" />
-                    <span className="text-slate-500 text-[10px] font-black uppercase tracking-widest">{course.studentCount} 位學員推薦</span>
+                <div className="p-6 sm:p-8 md:p-10 flex-grow flex flex-col">
+                  <div className="flex items-center gap-2 text-yellow-500/80 mb-3 md:mb-6">
+                    <Star size={12} className="sm:w-[14px] sm:h-[14px] fill-currentColor" />
+                    <span className="text-slate-500 text-[9px] sm:text-[10px] font-black uppercase tracking-widest">{course.studentCount} 位學員推薦</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors leading-tight">{course.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-8 md:mb-10 font-light line-clamp-3">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 md:mb-4 group-hover:text-blue-400 transition-colors leading-tight line-clamp-2">{course.title}</h3>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 md:mb-10 font-light line-clamp-3">
                     {course.description}
                   </p>
                   
-                  <div className="mt-auto pt-6 md:pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span className="text-2xl font-black text-white">{course.price}</span>
-                    <Link to={`/courses/${course.slug}`} className="w-12 h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl flex items-center justify-center transition-all active:scale-90">
-                      <ArrowRight size={20} />
+                  <div className="mt-auto pt-4 md:pt-6 lg:pt-8 border-t border-white/5 flex justify-between items-center">
+                    <span className="text-xl sm:text-2xl font-black text-white">{course.price}</span>
+                    <Link to={`/courses/${course.slug}`} className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-xl sm:rounded-2xl flex items-center justify-center transition-all active:scale-90">
+                      <ArrowRight size={18} className="sm:w-5 sm:h-5" />
                     </Link>
                   </div>
                 </div>
