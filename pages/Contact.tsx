@@ -2,8 +2,24 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { BRAND } from '../constants.tsx';
 import { SEO } from '../components/SEO.tsx';
+
+// EmailJS 配置 - 請在 EmailJS 設置完成後填入您的配置
+const EMAILJS_CONFIG = {
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+};
+
+// 諮詢項目對應的中文名稱
+const SERVICE_NAMES: Record<string, string> = {
+  'ai-automation': 'AI 流程自動化',
+  'custom-system': 'AI 系統開發',
+  'mini-program': 'AI 小程式客製',
+  'consulting': '純技術顧問諮詢',
+};
 
 export const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -14,17 +30,59 @@ export const Contact: React.FC = () => {
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
-    // Simulate API call
-    setTimeout(() => {
+    setErrorMessage('');
+
+    // 檢查 EmailJS 配置是否完整
+    if (!EMAILJS_CONFIG.PUBLIC_KEY || !EMAILJS_CONFIG.SERVICE_ID || !EMAILJS_CONFIG.TEMPLATE_ID) {
+      setStatus('error');
+      setErrorMessage('郵件服務尚未配置完成，請稍後再試或直接使用 Email 聯繫。');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 5000);
+      return;
+    }
+
+    try {
+      // 初始化 EmailJS
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+
+      // 準備郵件模板參數
+      const templateParams = {
+        from_name: formState.name,
+        from_email: formState.email,
+        company: formState.company || '未填寫',
+        service: SERVICE_NAMES[formState.service] || formState.service,
+        message: formState.message,
+        to_email: BRAND.email,
+        reply_to: formState.email,
+      };
+
+      // 發送郵件
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams
+      );
+
+      // 成功
       setStatus('success');
       setFormState({ name: '', email: '', company: '', service: 'ai-automation', message: '' });
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('郵件發送失敗:', error);
+      setStatus('error');
+      setErrorMessage('發送失敗，請稍後再試或直接使用 Email 聯繫。');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 5000);
+    }
   };
 
   return (
@@ -172,6 +230,20 @@ export const Contact: React.FC = () => {
             
             {status === 'success' && (
               <p className="mt-4 text-emerald-400 text-sm text-center font-medium">訊息已成功送出！我會盡快在 24 小時內與您聯繫。</p>
+            )}
+            
+            {status === 'error' && (
+              <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                <p className="text-red-400 text-sm text-center font-medium flex items-center justify-center gap-2">
+                  <AlertCircle size={18} />
+                  {errorMessage || '發送失敗，請稍後再試或直接使用 Email 聯繫。'}
+                </p>
+                {errorMessage.includes('尚未配置') && (
+                  <p className="text-xs text-slate-400 text-center mt-2">
+                    請參考 <code className="bg-slate-800 px-2 py-1 rounded">EMAILJS_SETUP.md</code> 完成設置
+                  </p>
+                )}
+              </div>
             )}
           </form>
         </div>
