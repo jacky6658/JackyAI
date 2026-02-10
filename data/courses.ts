@@ -3,6 +3,65 @@ import { Course } from '../types.ts';
 
 export const COURSES_DATA: Course[] = [
   {
+    id: "openclaw-beginner",
+    slug: "openclaw-beginner",
+    title: "OpenClaw 新手 0→1 完整實作課",
+    subtitle: "你值得擁有一隻龍蝦！",
+    description: "從零開始打造你的 AI 私人助理。這堂課將手把手帶你安裝、設定並訓練一隻專屬於你的 AI 龍蝦助理，讓它成為你工作與生活中最得力的夥伴。無需程式背景，跟著步驟做就能擁有 24 小時待命的智慧幫手。",
+    tags: ["OpenClaw", "AI 助理", "實作課程"],
+    studentCount: "50+",
+    duration: "8 小時",
+    price: "NT$ 1,980",
+    link: "https://ppa.tw/s/openclaw",
+    coverImage: "/images/openclaw-course.jpg",
+    outcomes: [
+      "完成 OpenClaw 安裝與基礎設定",
+      "學會訓練 AI 助理的核心技巧",
+      "打造專屬於你的 AI 工作流程",
+      "掌握 AI 助理的記憶與人設配置"
+    ],
+    targetAudience: [
+      "想擁有 AI 私人助理的創業者與工作者",
+      "對 AI 應用有興趣但不會寫程式的人",
+      "希望提升工作效率的專業人士",
+      "想學習最新 AI Agent 技術的愛好者"
+    ],
+    curriculum: [
+      {
+        title: "章節一：認識 OpenClaw 與 AI 助理",
+        items: [
+          "什麼是 OpenClaw？",
+          "AI 助理能幫你做什麼？",
+          "課程學習路徑說明"
+        ]
+      },
+      {
+        title: "章節二：安裝與環境設定",
+        items: [
+          "macOS / Windows 安裝教學",
+          "基礎設定與啟動",
+          "連接 Telegram 通訊"
+        ]
+      },
+      {
+        title: "章節三：訓練你的 AI 龍蝦",
+        items: [
+          "設定 AI 人設與記憶",
+          "教會 AI 你的工作習慣",
+          "建立專屬技能與工作流"
+        ]
+      },
+      {
+        title: "章節四：進階應用與實戰",
+        items: [
+          "多平台整合（LINE、WhatsApp）",
+          "自動化任務與排程",
+          "AI 助理最佳實踐"
+        ]
+      }
+    ]
+  },
+  {
     id: "ai-automation-masterclass",
     slug: "ai-automation-masterclass",
     title: "AI 自動化工作流實戰營",
