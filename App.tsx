@@ -13,6 +13,7 @@ const About = lazy(() => import('./pages/About.tsx').then(m => ({ default: m.Abo
 const Contact = lazy(() => import('./pages/Contact.tsx').then(m => ({ default: m.Contact })));
 const Legal = lazy(() => import('./pages/Legal.tsx').then(m => ({ default: m.Legal })));
 const AIRecruiting = lazy(() => import('./pages/AIRecruiting.tsx').then(m => ({ default: m.AIRecruiting })));
+const Step1neSystem = lazy(() => import('./pages/Step1neSystem.tsx').then(m => ({ default: m.Step1neSystem })));
 
 // 載入中組件
 const LoadingSpinner = () => (
@@ -46,6 +47,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/ai-recruiting" element={<AIRecruiting />} />
+            <Route path="/step1ne" element={<Step1neSystem />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="*" element={<Home />} />
           </Routes>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BRAND } from '../constants.tsx';
-import { Bot, Zap, TrendingUp, Users, CheckCircle2, ArrowRight, Award, Target, Gauge, Lightbulb, Layers } from 'lucide-react';
+import { Bot, Zap, TrendingUp, Users, CheckCircle2, ArrowRight, Award, Target, Gauge, Lightbulb, Layers, Image as ImageIcon } from 'lucide-react';
 import { SEO } from '../components/SEO.tsx';
 
 interface Tab {
@@ -12,10 +12,39 @@ interface Tab {
 
 export const AIRecruiting: React.FC = () => {
   const [activeTab, setActiveTab] = useState('features');
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const screenshots = [
+    {
+      title: '候選人管理列表',
+      desc: '649 位候選人資料庫，支援搜尋、篩選、批量操作',
+      image: '/step1ne-candidate-list.jpg',
+      features: ['6 維度評分', '穩定度評估', '聯絡方式', 'AI 推薦']
+    },
+    {
+      title: 'Kanban 流程看板',
+      desc: '實時追蹤候選人狀態：未開始→已聯繫→已面試→Offer→已上職',
+      image: '/step1ne-board.jpg',
+      features: ['視覺化流程', '拖拽管理', '團隊協作', '進度追蹤']
+    },
+    {
+      title: 'AI 配對推薦',
+      desc: '智慧匹配系統，自動推薦最合適的候選人',
+      image: '/step1ne-ai-matching.jpg',
+      features: ['6 維度評分', '相容度分析', '批量評分', '推薦理由']
+    },
+    {
+      title: '顧問人選追蹤表',
+      desc: '多顧問協作看板，實時同步招聘進度',
+      image: '/step1ne-tracking.jpg',
+      features: ['協作管理', '進度統計', 'SLA 追蹤', '智慧通知']
+    }
+  ];
 
   const tabs: Tab[] = [
     { id: 'features', name: '功能特色', icon: <Lightbulb size={20} /> },
     { id: 'architecture', name: '系統架構', icon: <Layers size={20} /> },
+    { id: 'demo', name: '系統演示', icon: <ImageIcon size={20} /> },
     { id: 'why', name: '為什麼選擇', icon: <Award size={20} /> },
   ];
 
@@ -305,6 +334,115 @@ export const AIRecruiting: React.FC = () => {
                     </motion.div>
                   </div>
                 </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'demo' && (
+              <motion.div
+                key="demo"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="space-y-8"
+              >
+                <div>
+                  <h3 className="text-3xl font-black mb-8 text-white">🎬 系統實際運行演示</h3>
+                  
+                  {/* Main Image Display */}
+                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#141B2C] mb-6">
+                    <motion.img
+                      key={selectedImage}
+                      src={screenshots[selectedImage].image}
+                      alt={screenshots[selectedImage].title}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-full h-auto max-h-[500px] object-cover"
+                    />
+                  </div>
+
+                  {/* Title & Description */}
+                  <div className="space-y-3 mb-6">
+                    <h4 className="text-2xl font-black text-white flex items-center gap-3">
+                      <ImageIcon size={24} className="text-blue-400" />
+                      {screenshots[selectedImage].title}
+                    </h4>
+                    <p className="text-slate-300 text-lg">{screenshots[selectedImage].desc}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {screenshots[selectedImage].features.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 text-sm font-semibold rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                        >
+                          ✓ {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Thumbnail Navigation */}
+                  <div className="flex gap-3 overflow-x-auto pb-2">
+                    {screenshots.map((shot, idx) => (
+                      <motion.button
+                        key={idx}
+                        onClick={() => setSelectedImage(idx)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`flex-shrink-0 h-24 rounded-lg overflow-hidden border-3 transition-all ${
+                          selectedImage === idx
+                            ? 'border-blue-500 ring-2 ring-blue-500/50'
+                            : 'border-slate-700 hover:border-slate-500'
+                        }`}
+                      >
+                        <img
+                          src={shot.image}
+                          alt={shot.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Feature Highlights */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/20"
+                  >
+                    <p className="text-base font-bold text-emerald-300 mb-2">✅ 本地運行</p>
+                    <p className="text-sm text-slate-400">無需後端 SQL，完全本地演示模式</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="p-6 rounded-xl bg-cyan-500/10 border border-cyan-500/20"
+                  >
+                    <p className="text-base font-bold text-cyan-300 mb-2">⚡ 50x 效率提升</p>
+                    <p className="text-sm text-slate-400">6+ 小時流程 → 7 分鐘完成</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="p-6 rounded-xl bg-purple-500/10 border border-purple-500/20"
+                  >
+                    <p className="text-base font-bold text-purple-300 mb-2">🤝 多用戶協作</p>
+                    <p className="text-sm text-slate-400">支援 3+ 顧問同時操作</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="p-6 rounded-xl bg-orange-500/10 border border-orange-500/20"
+                  >
+                    <p className="text-base font-bold text-orange-300 mb-2">📊 實時同步</p>
+                    <p className="text-sm text-slate-400">Google Sheets 自動同步 433 行資料</p>
+                  </motion.div>
+                </div>
+
+
               </motion.div>
             )}
 
