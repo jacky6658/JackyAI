@@ -31,9 +31,10 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: '作品案例', path: '/works', id: '01' },
-    { name: '課程教學', path: '/courses', id: '02' },
-    { name: '服務項目', path: '/services', id: '03' },
-    { name: '關於我', path: '/about', id: '04' },
+    { name: '龍蝦AI招聘', path: '/ai-recruiting', id: '02' },
+    { name: '課程教學', path: '/courses', id: '03' },
+    { name: '服務項目', path: '/services', id: '04' },
+    { name: '關於我', path: '/about', id: '05' },
   ];
 
   return (
