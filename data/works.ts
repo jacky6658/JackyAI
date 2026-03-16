@@ -94,7 +94,7 @@ export const WORKS_DATA: Work[] = [
       "大幅縮減招募週期，平均錄取一位候選人的時間縮短了兩週"
     ],
     links: {
-      website: "https://aihr.zeabur.app/"
+      website: "https://aihr.zeabur.app"
     },
     exploration: {
       title: "重新定義高效招募",
