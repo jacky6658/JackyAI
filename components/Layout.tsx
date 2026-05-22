@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 pt-20 pb-12 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
           <div className="md:col-span-2">
             <Link to="/" className="text-xl font-black mb-6 flex items-center gap-2">
               <div className="w-6 h-6 rounded bg-white p-0.5">
@@ -175,7 +175,7 @@ const Footer: React.FC = () => {
               <a href={BRAND.ytLink} target="_blank" rel="noreferrer" className="w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-red-600 transition-all group"><Youtube size={18} className="text-slate-400 group-hover:text-white" /></a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">導覽</h4>
             <ul className="space-y-3 text-slate-500 text-xs">
@@ -190,6 +190,22 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-slate-500 text-xs">
               <li><a href={`mailto:${BRAND.email}`} className="hover:text-blue-400 transition-colors">{BRAND.email}</a></li>
               <li><a href={BRAND.lineLink} target="_blank" rel="noreferrer" className="hover:text-blue-400 transition-colors">LINE 諮詢</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">推薦工具</h4>
+            <ul className="space-y-3 text-slate-500 text-xs">
+              <li>
+                <a
+                  href="https://gulicalc.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  股利計算機
+                </a>
+              </li>
             </ul>
           </div>
         </div>
