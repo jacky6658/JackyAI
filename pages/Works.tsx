@@ -279,6 +279,39 @@ export const Works: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 延伸資源文章區塊 */}
+      <section className="mt-24 md:mt-32 border-t border-white/5 pt-16 md:pt-24">
+        <div className="max-w-3xl">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-1 w-10 bg-blue-600"></div>
+            <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">AI × 財務工具</span>
+          </div>
+          <h2 className="text-2xl md:text-4xl font-black mb-6 italic tracking-tight leading-tight">
+            AI 自動化之外，數字也要算清楚
+          </h2>
+          <div className="space-y-5 text-slate-400 text-sm md:text-base leading-relaxed font-light">
+            <p>
+              在協助企業導入 AI 自動化流程的過程中，我發現許多創業者和投資人同樣面臨一個問題：決策速度跟不上資訊量。AI 能加速流程，但財務規劃的底層邏輯，仍需要精準的數字支撐。
+            </p>
+            <p>
+              以股票投資為例，配息再投入的複利效果往往被低估。如果你也在評估存股策略，推薦使用這款專為台股設計的{' '}
+              <a
+                href="https://gulicalc.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-blue-400 hover:text-blue-300 underline underline-offset-4 decoration-blue-500/40 hover:decoration-blue-400 transition-colors font-medium"
+              >
+                股利計算機
+              </a>
+              ，可以快速試算殖利率、累積股利與再投入後的資產成長曲線，讓數字說話，輔助你做出更有依據的財務決策。
+            </p>
+            <p>
+              工具的本質是降低決策門檻。不論是 AI 自動化，還是財務試算工具，選對工具就是競爭力的起點。
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
     </>
   );
