@@ -280,37 +280,76 @@ export const Works: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 延伸資源文章區塊 */}
+      {/* 推薦工具卡片區塊 */}
       <section className="mt-24 md:mt-32 border-t border-white/5 pt-16 md:pt-24">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-1 w-10 bg-blue-600"></div>
-            <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">AI × 財務工具</span>
-          </div>
-          <h2 className="text-2xl md:text-4xl font-black mb-6 italic tracking-tight leading-tight">
-            AI 自動化之外，數字也要算清楚
-          </h2>
-          <div className="space-y-5 text-slate-400 text-sm md:text-base leading-relaxed font-light">
-            <p>
-              在協助企業導入 AI 自動化流程的過程中，我發現許多創業者和投資人同樣面臨一個問題：決策速度跟不上資訊量。AI 能加速流程，但財務規劃的底層邏輯，仍需要精準的數字支撐。
-            </p>
-            <p>
-              以股票投資為例，配息再投入的複利效果往往被低估。如果你也在評估存股策略，推薦使用這款專為台股設計的{' '}
-              <a
-                href="https://gulicalc.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-400 hover:text-blue-300 underline underline-offset-4 decoration-blue-500/40 hover:decoration-blue-400 transition-colors font-medium"
-              >
-                股利計算機
-              </a>
-              ，可以快速試算殖利率、累積股利與再投入後的資產成長曲線，讓數字說話，輔助你做出更有依據的財務決策。
-            </p>
-            <p>
-              工具的本質是降低決策門檻。不論是 AI 自動化，還是財務試算工具，選對工具就是競爭力的起點。
-            </p>
-          </div>
+        <div className="flex items-center gap-4 mb-10">
+          <div className="h-1 w-10 bg-blue-600"></div>
+          <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em]">推薦工具 / Tools</span>
         </div>
+        <h2 className="text-2xl md:text-4xl font-black mb-12 italic tracking-tight">
+          AI 之外，這些工具也值得收藏
+        </h2>
+
+        <a
+          href="https://gulicalc.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="group flex flex-col md:flex-row rounded-[40px] bg-slate-900/30 border border-white/5 overflow-hidden hover:border-blue-500/30 transition-all shadow-xl hover:shadow-2xl hover:shadow-blue-500/10 max-w-4xl"
+        >
+          {/* 封面圖 */}
+          <div className="md:w-[420px] shrink-0 aspect-[16/10] md:aspect-auto overflow-hidden relative">
+            <img
+              src="/images/gulicalc-cover.png"
+              alt="股利計算機 - 台股殖利率試算工具"
+              className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-950/40"></div>
+            {/* 標籤 */}
+            <div className="absolute top-4 left-4 flex gap-2">
+              <span className="bg-amber-500/80 backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-black text-white uppercase tracking-wider border border-white/10">
+                財務工具
+              </span>
+              <span className="bg-emerald-500/80 backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-black text-white uppercase tracking-wider border border-white/10">
+                免費
+              </span>
+            </div>
+          </div>
+
+          {/* 內容 */}
+          <div className="flex flex-col justify-between p-8 md:p-10 flex-grow">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-[10px] font-black text-blue-400 bg-blue-400/10 px-3 py-1 rounded-lg uppercase tracking-[0.2em] border border-blue-500/10">
+                  台股投資
+                </span>
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                  gulicalc.com
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-blue-400 transition-colors tracking-tight leading-tight">
+                股利計算機
+              </h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 font-light">
+                專為台股投資人設計的免費試算工具。輸入股價、持有股數與每股股利，即時算出殖利率、總配息與投入成本。還提供存股複利、回本年數、定期定額等多種計算功能，讓每一筆投資決策都有數字支撐。
+              </p>
+            </div>
+
+            <div className="pt-6 border-t border-white/5">
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['殖利率試算', '存股複利', '回本計算', '定期定額', '配息查詢'].map(tag => (
+                  <span key={tag} className="text-[10px] font-black text-slate-500 bg-white/5 px-2.5 py-1 rounded-lg uppercase tracking-wider border border-white/5">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-2 text-blue-400 font-black text-sm group-hover:gap-4 transition-all">
+                立即試算 <span className="text-lg">→</span>
+              </div>
+            </div>
+          </div>
+        </a>
       </section>
     </div>
     </>
