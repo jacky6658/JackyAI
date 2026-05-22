@@ -350,6 +350,78 @@ export const Works: React.FC = () => {
             </div>
           </div>
         </a>
+
+        {/* 文章內容 */}
+        <div className="mt-16 max-w-3xl space-y-8 text-slate-400 text-sm md:text-[15px] leading-[1.9] font-light">
+          <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight mt-0">
+            存股族在用 AI 之前，先把這件事搞定
+          </h3>
+
+          <p>
+            我幫過不少創業者和中小企業主導入 AI 自動化流程，但每次聊到他們的財務狀況，卻常常卡在同一個問題：
+            手上持有十幾檔股票，每年配息金額、殖利率、回本年數全靠 Excel 土炮計算，一旦配息金額調整或手動換股，整張表就亂掉了。
+          </p>
+
+          <p>
+            老實說，這件事不需要 AI，用對工具就夠了。
+          </p>
+
+          <p>
+            我現在固定在用的是{' '}
+            <a
+              href="https://gulicalc.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-400 hover:text-blue-300 underline underline-offset-4 decoration-blue-500/30 hover:decoration-blue-400 transition-colors"
+            >
+              股利計算機（gulicalc.com）
+            </a>
+            ，介面乾淨，輸入股價、持有股數、每股股利三個欄位，
+            殖利率和總配息馬上出來，不用開 Excel、不用記公式。
+            台股殖利率計算這件事，能簡單就別複雜化。
+          </p>
+
+          <p>
+            它額外附的幾個工具我也蠻常用：
+          </p>
+
+          <ul className="space-y-3 pl-4 list-none">
+            <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-slate-600">
+              <strong className="text-slate-300 font-semibold">存股複利計算器</strong>：把每年的股利再投入，試算 10 年後資產大概長到哪，看了會有繼續存的動力。
+            </li>
+            <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-slate-600">
+              <strong className="text-slate-300 font-semibold">存股回本計算器</strong>：光看殖利率其實不夠，知道這檔股票幾年能靠配息回本，才能真的評估要不要繼續持有。
+            </li>
+            <li className="relative pl-5 before:content-['—'] before:absolute before:left-0 before:text-slate-600">
+              <strong className="text-slate-300 font-semibold">定期定額試算器</strong>：每個月固定投入，長期下來的成果用圖表呈現，比想像中更直觀。
+            </li>
+          </ul>
+
+          <p>
+            如果你有在存高股息 ETF，網站裡面也有{' '}
+            <a
+              href="https://gulicalc.com/articles"
+              target="_blank"
+              rel="noreferrer"
+              className="text-blue-400 hover:text-blue-300 underline underline-offset-4 decoration-blue-500/30 hover:decoration-blue-400 transition-colors"
+            >
+              ETF 配息專區
+            </a>
+            ，0056、00878、00919 的歷年配息紀錄和殖利率試算都整理好了，
+            想知道「持有 0056 十張每季可以領多少」這類問題，直接查比自己算快很多。
+          </p>
+
+          <p>
+            另外分享一個我蠻認同的觀念：台股殖利率多少算高？
+            這個問題沒有標準答案，但網站的文章有一個說法我覺得很務實——
+            殖利率超過 5% 不代表好，還要看這家公司過去幾年配息有沒有縮水、填息率高不高。
+            高殖利率股票的篩選邏輯跟 AI 選模型很像，數字只是其中一個維度。
+          </p>
+
+          <p>
+            工具選對了，財務決策才有辦法跟 AI 自動化一樣，省時又準確。
+          </p>
+        </div>
       </section>
     </div>
     </>
