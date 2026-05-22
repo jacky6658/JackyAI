@@ -12,7 +12,7 @@ export const BRAND = {
   line: "jacky051285",
   lineLink: "https://lin.ee/i8fixak", 
   telegram: "0958616744",
-  websiteLink: "https://www.aijob.com.tw/", // 官方網站
+  websiteLink: "https://aijob.com.tw/", // 官方網站
   recruitmentLink: "https://portaly.cc/JackyChen", // 招募與顧問服務連結
   igLink: "https://www.instagram.com/aijobschool/reels/", 
   ytLink: "https://youtube.com/@aijobschool?si=MPfsiF_Hh8wQt_1v",
