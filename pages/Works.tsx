@@ -263,7 +263,7 @@ export const Works: React.FC = () => {
               transition={{ duration: 0.4, delay: filteredWorks.length * 0.05 }}
               className="group flex flex-col h-full rounded-[40px] bg-slate-900/30 border border-white/5 overflow-hidden hover:border-blue-500/30 transition-all shadow-xl hover:shadow-2xl hover:shadow-blue-500/10 active:scale-[0.98]"
             >
-              <a href="https://gulicalc.com/" target="_blank" rel="noreferrer" className="flex flex-col h-full">
+              <Link to="/works/gulicalc-dividend-calculator" className="flex flex-col h-full">
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img
                     src="/images/gulicalc-cover.png"
@@ -295,7 +295,7 @@ export const Works: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         ) : (

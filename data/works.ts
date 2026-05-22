@@ -193,5 +193,57 @@ export const WORKS_DATA: Work[] = [
     },
     coverImage: "https://static.wixstatic.com/media/9705bb_0ffb168b437e4c98a2717b7f8c7263c7~mv2.png",
     galleryImages: []
+  },
+  {
+    slug: "gulicalc-dividend-calculator",
+    title: "股利計算機",
+    shortName: "GuliCalc",
+    summary: "專為台股投資人打造的免費試算平台，輸入股價、持有股數與每股股利，即時算出殖利率與總配息，並支援存股複利、回本年數、定期定額等多種計算功能。",
+    problem: "台股投資人在評估存股標的時，往往需要手動計算殖利率、回本年數與複利成長，流程繁瑣且容易出錯，缺乏一個簡單直覺的一站式試算工具。",
+    solution: "開發輕量化的股利試算平台，以最簡潔的介面整合殖利率計算、存股複利試算、回本年數估算與定期定額模擬四大核心功能，並提供 25 篇投資教學文章輔助決策。",
+    role: "產品設計 / 前端開發 / 內容策略",
+    stack: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+    year: "2025",
+    industry: "FinTech",
+    tags: ["Platform", "Data Analysis"],
+    metrics: [
+      { label: "核心計算功能", value: "4 種" },
+      { label: "投資教學文章", value: "25 篇" }
+    ],
+    showcase: [
+      {
+        title: "股利計算主介面",
+        description: "輸入股價、持有股數與每股股利，即時試算殖利率、總配息與投入成本。",
+        images: ["/images/gulicalc-cover.png"]
+      },
+      {
+        title: "更多投資工具",
+        description: "存股複利計算器、回本計算器、定期定額試算器，全方位輔助存股決策。",
+        images: ["/images/gulicalc-tools.png"]
+      }
+    ],
+    highlights: [
+      "即時試算：輸入三個欄位秒出殖利率，不需開 Excel 或記公式",
+      "多功能整合：存股複利、回本年數、定期定額一站搞定",
+      "投資教學：涵蓋 ETF 配息、個股配息、策略與稅務共 25 篇文章"
+    ],
+    results: [
+      "整合 0056、00878、00919 等熱門高股息 ETF 歷年配息紀錄",
+      "提供兆豐金、玉山金、台積電等個股配息完整試算",
+      "幫助存股族快速評估月領萬元所需本金與策略路線"
+    ],
+    links: {
+      website: "https://gulicalc.com/"
+    },
+    exploration: {
+      title: "讓每一筆投資決策都有數字支撐",
+      description: "不靠感覺存股。把複雜的財務計算簡化成三個欄位，讓數字告訴你答案。",
+      features: [
+        { title: "殖利率即時試算", description: "輸入股價與每股股利，自動計算殖利率與總配息，判斷高低一目瞭然。", icon: "BarChart3" },
+        { title: "存股複利模擬", description: "試算股利再投入的長期複利效果，看見時間與紀律的力量。", icon: "Target" }
+      ]
+    },
+    coverImage: "/images/gulicalc-cover.png",
+    galleryImages: []
   }
 ];
